@@ -75,8 +75,8 @@ fn if_let_and_let_else_ex() {
 }
 
 fn main() {
-    if_let_and_let_else_ex();
     // let home=IpAddress::define_ip(IpAddrTypes::V6,String::from("129.168.0.1"));
+    if_let_jnd_let_else_ex();
     // let office=IpAddress::define_ip(IpAddrTypes::V4,String::from("129.168.0.1"));
     // println!("ip type:{:#?} address:{}",home.kind,home.address);
     // println!("ip type:{:#?} address:{}",office.kind,office.address);
