@@ -1,0 +1,2 @@
+max_width = 120   # or whatever width you like
+fn_args_layout = "Compressed"  # keeps args in one line if possible
