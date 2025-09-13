@@ -3,12 +3,12 @@ use std::fmt::Display;
 use orphan_rule::{Pirate, PrirateHi};
 use summary_traits::{NewsArtical, SocialPost, notify};
 
-use crate::summary_traits::{Summary, notify_v2, notify_v3, notify_v4, return_summary_social};
 use crate::life_time::{foo_life_time, life_time_ex};
+use crate::summary_traits::{Summary, notify_v2, notify_v3, notify_v4, return_summary_social};
 
+pub mod life_time;
 pub mod orphan_rule;
 pub mod summary_traits;
-pub mod life_time;
 
 fn main() {
     // calling_notify_with_two_impl_traits();
@@ -16,7 +16,58 @@ fn main() {
     // println!("{}", social.summarize());
     // max_num_from_pair();
     // life_time_ex();
-    foo_life_time();
+    // foo_life_time();
+    questions3();
+}
+
+fn questions3() {
+    #[derive(Debug)]
+    struct TestResult {
+        scores: Vec<usize>,
+        curve: Option<usize>,
+    }
+
+    impl TestResult {
+        fn get_curve(&self) -> &Option<usize> {
+            &self.curve
+        }
+        fn apply_curve(&mut self) {
+            if let Some(curve) = self.get_curve() {
+                // if let Some(curve) = self.curve {
+                for data in self.scores.clone().iter_mut() {
+                // for data in self.scores.iter_mut() {
+                    *data += curve;
+                }
+            }
+        }
+    }
+
+    // let mut result = TestResult {
+    //     score: vec![10, 20, 30],
+    //     curve: Some(1),
+    // };
+    // println!("curve {:#?}", result.get_curve());
+    // result.apply_curve();
+    // println!("curve {:#?}", result);
+
+    let mut result = TestResult {
+        scores: vec![20, 50, 30],
+        curve: Some(10),
+    };
+    result.apply_curve();
+    println!("{:?}", result.scores);
+
+
+
+    let name: Option<String> = Some("Nami".to_string());
+
+    if let Some(n) = &name {
+        // Borrow inner value
+        println!("Name: {}", n);
+    }
+    let data = &name;
+    let n = name.as_ref().map(|s| s.len());
+    println!("{:?}", n);
 }
 // fn _max_num_from_pair() {
 //     struct Pair<T> {
