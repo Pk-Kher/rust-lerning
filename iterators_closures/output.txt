@@ -1,0 +1,44 @@
+Blue
+before define:[
+    12,
+    3,
+    4,
+]
+after define:[
+    12,
+    3,
+    4,
+]
+closer:[
+    12,
+    3,
+    4,
+]
+closer:[
+    12,
+    3,
+    4,
+]
+After called:[
+    12,
+    3,
+    4,
+]
+--------------
+before define:[
+    12,
+    3,
+    4,
+]
+After called:[
+    12,
+    3,
+    4,
+    20,
+]
+--------------
+before define:[
+    12,
+    3,
+    4,
+]
