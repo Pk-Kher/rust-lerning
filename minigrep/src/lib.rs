@@ -6,14 +6,18 @@ pub struct Config {
     pub ignore_case: bool,
 }
 impl Config {
-    pub fn build(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("Please provide valid args \"cargo run [search] [file_path]\"");
-        }
-        let query = &args[1];
-        let file_path = &args[2];
+    pub fn build(mut args: impl Iterator<Item = String>) -> Result<Config, &'static str> {
+        args.next();
+        let query = match args.next() {
+            Some(data) => data,
+            None => return Err("Didn't get a query string"),
+        };
+        let file_path = match args.next() {
+            Some(data) => data,
+            None => return Err("Didn't get a file path string"),
+        };
         // IGNORE_CASE=0 cargo run how poem.txt
-        let ignore_case=env::var("IGNORE_CASE").is_ok();
+        let ignore_case = env::var("IGNORE_CASE").is_ok();
         // let ignore_case = match args.get(3) {
         //     Some(..) => true,
         //     None => false,
