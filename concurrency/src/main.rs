@@ -1,3 +1,4 @@
+#![allow(unused)]
 use std::{
     rc::Rc,
     sync::{Arc, Mutex, mpsc},
@@ -6,9 +7,21 @@ use std::{
 };
 
 fn main() {
-    // thread_ex();
+    two_threads();
     // channel_shared_data();
-    shared_data_using_mutex();
+    // shared_data_using_mutex();
+}
+
+fn two_threads() {
+    thread::spawn(|| {
+        for i in 1..10 {
+            println!("{}", i);
+        }
+    });
+    for i in 1..10 {
+        println!("outer {}", i);
+        thread::sleep(Duration::from_millis(1000));
+    }
 }
 
 fn _thread_ex() {
