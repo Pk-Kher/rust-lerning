@@ -1,0 +1,14 @@
+fn main() {
+    let mut x = 10;
+    let r1 = &x; // immutable reference
+    // let r2 = &mut x;  //  ERROR: cannot borrow `x` as mutable because it's already borrowed immutably
+    println!("{}", r1);
+
+    let mut num = 5;
+    let r3: *const i32 = &raw const num; // raw immutable pointer
+    let r4: *mut i32 = &raw mut num; // raw mutable pointer
+    unsafe {
+    println!("{:?}", *r3);
+    }
+    // *r1;
+}
